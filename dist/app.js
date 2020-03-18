@@ -82,15 +82,7 @@ app.get("/weather", function (req, res) {
       });
     });
   });
-}); //
-// app.get("/products", (req, res) => {
-//     if (!req.query.search) {
-//         return res.send({
-//             error: "You must provide a search term"
-//         });
-//     }
-// });
-
+});
 app.get("/help/*", function (req, res) {
   res.render("404", {
     title: "404",
