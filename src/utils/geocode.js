@@ -1,7 +1,7 @@
 import request from 'request';
 
 
-const geocode = (address, callback) => {
+export const geocode = (address, callback) => {
     const url ="https://api.mapbox.com/geocoding/v5/mapbox.places/" + encodeURIComponent(address) + ".json?access_token=pk.eyJ1IjoidGhldnlhbnNoIiwiYSI6ImNrN2s2ajVoeDEzaHAzb2xpZjdseTgyaW0ifQ.hcRSw5uWlkpQGCCbFWkzZg&limit=1";
 
     request({url, json: true}, (error, {body}) => {
@@ -18,5 +18,3 @@ const geocode = (address, callback) => {
         }
     });
 };
-
-module.exports = geocode;

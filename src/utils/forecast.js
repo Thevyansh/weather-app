@@ -1,6 +1,6 @@
 import request from 'request';
 
-const forecast = (latitude, longitude, callback) => {
+export const forecast = (latitude, longitude, callback) => {
     const url = 'https://api.darksky.net/forecast/822e47a9321260a68302266c1594560b/' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude);
     request({url, json: true}, (error, {body}) => {
         if (error) {
@@ -12,5 +12,3 @@ const forecast = (latitude, longitude, callback) => {
         }
     });
 };
-
-module.exports = forecast;

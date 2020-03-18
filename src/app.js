@@ -1,11 +1,12 @@
 import path from 'path';
 import express from 'express';
 import hbs from 'hbs';
-import forecast from './utils/forecast';
-import geocode from './utils/geocode';
+import {forecast} from './utils/forecast';
+import {geocode} from './utils/geocode';
 
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -65,14 +66,6 @@ app.get("/weather", (req, res) => {
         });
     });
 });
-//
-// app.get("/products", (req, res) => {
-//     if (!req.query.search) {
-//         return res.send({
-//             error: "You must provide a search term"
-//         });
-//     }
-// });
 
 app.get("/help/*", (req, res) => {
     res.render("404", {
@@ -90,6 +83,6 @@ app.get("*", (req, res) => {
     });
 });
 
-app.listen(3000, function () {
+app.listen(port, function () {
     console.log("Server is running on localhost:3000");
 });
