@@ -1,8 +1,8 @@
-import path from 'path';
-import express from 'express';
-import hbs from 'hbs';
-import {forecast} from './utils/forecast';
-import {geocode} from './utils/geocode';
+const path = require('path');
+const express = require('express');
+const hbs = require('hbs');
+const {forecast} = require('./utils/forecast');
+const {geocode} = require('./utils/geocode');
 
 
 const app = express();
@@ -56,7 +56,7 @@ app.get("/weather", (req, res) => {
         }
         forecast(latitude, longitude, (error, forecastData) => {
             if (error) {
-                return res.send({error})
+                return res.send({error});
             }
             res.send({
                 forecast: forecastData,
@@ -66,6 +66,7 @@ app.get("/weather", (req, res) => {
         });
     });
 });
+
 
 app.get("/help/*", (req, res) => {
     res.render("404", {
